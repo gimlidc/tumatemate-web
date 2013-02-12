@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sessionId: MyString
+  productId: 1
+  price: 9.99
+  quantity: 1
+
+two:
+  sessionId: MyString
+  productId: 1
+  price: 9.99
+  quantity: 1

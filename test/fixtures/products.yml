@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  imgS: 
+  imgM: 
+  imgL: 
+  price: 9.99
+  descriptionS: MyText
+  descriptionL: MyText
+  weight: 1.5
+  stock: 1
+
+two:
+  imgS: 
+  imgM: 
+  imgL: 
+  price: 9.99
+  descriptionS: MyText
+  descriptionL: MyText
+  weight: 1.5
+  stock: 1

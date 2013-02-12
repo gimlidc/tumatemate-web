@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sessionid:</b>
+  <%= @basket_item.sessionId %>
+</p>
+
+<p>
+  <b>Productid:</b>
+  <%= @basket_item.productId %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @basket_item.price %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @basket_item.quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_basket_item_path(@basket_item) %> |
+<%= link_to 'Back', basket_items_path %>

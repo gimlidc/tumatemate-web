@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userId: 1
+  postage: 9.99
+  time: 2013-02-12 16:52:25
+
+two:
+  userId: 1
+  postage: 9.99
+  time: 2013-02-12 16:52:25
