@@ -6,7 +6,7 @@ class BasketItemsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @basket_items }
+      format.json { render :json => @basket_items }
     end
   end
 
@@ -17,7 +17,7 @@ class BasketItemsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @basket_item }
+      format.json { render :json => @basket_item }
     end
   end
 
@@ -28,7 +28,7 @@ class BasketItemsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @basket_item }
+      format.json { render :json => @basket_item }
     end
   end
 
@@ -44,11 +44,11 @@ class BasketItemsController < ApplicationController
 
     respond_to do |format|
       if @basket_item.save
-        format.html { redirect_to @basket_item, notice: 'Basket item was successfully created.' }
-        format.json { render json: @basket_item, status: :created, location: @basket_item }
+        format.html { redirect_to @basket_item, :notice => 'Basket item was successfully created.' }
+        format.json { render :json => @basket_item, :status => :created, :location => @basket_item }
       else
-        format.html { render action: "new" }
-        format.json { render json: @basket_item.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @basket_item.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class BasketItemsController < ApplicationController
 
     respond_to do |format|
       if @basket_item.update_attributes(params[:basket_item])
-        format.html { redirect_to @basket_item, notice: 'Basket item was successfully updated.' }
+        format.html { redirect_to @basket_item, :notice => 'Basket item was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @basket_item.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @basket_item.errors, :status => :unprocessable_entity }
       end
     end
   end

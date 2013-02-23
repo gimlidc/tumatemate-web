@@ -6,7 +6,7 @@ class ProducersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @producers }
+      format.json { render :json => @producers }
     end
   end
 
@@ -17,7 +17,7 @@ class ProducersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @producer }
+      format.json { render :json => @producer }
     end
   end
 
@@ -28,7 +28,7 @@ class ProducersController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @producer }
+      format.json { render :json => @producer }
     end
   end
 
@@ -44,11 +44,11 @@ class ProducersController < ApplicationController
 
     respond_to do |format|
       if @producer.save
-        format.html { redirect_to @producer, notice: 'Producer was successfully created.' }
-        format.json { render json: @producer, status: :created, location: @producer }
+        format.html { redirect_to @producer, :notice => 'Producer was successfully created.' }
+        format.json { render :json => @producer, :status => :created, :location => @producer }
       else
-        format.html { render action: "new" }
-        format.json { render json: @producer.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @producer.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class ProducersController < ApplicationController
 
     respond_to do |format|
       if @producer.update_attributes(params[:producer])
-        format.html { redirect_to @producer, notice: 'Producer was successfully updated.' }
+        format.html { redirect_to @producer, :notice => 'Producer was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @producer.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @producer.errors, :status => :unprocessable_entity }
       end
     end
   end

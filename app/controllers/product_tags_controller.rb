@@ -6,7 +6,7 @@ class ProductTagsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @product_tags }
+      format.json { render :json => @product_tags }
     end
   end
 
@@ -17,7 +17,7 @@ class ProductTagsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @product_tag }
+      format.json { render :json => @product_tag }
     end
   end
 
@@ -28,7 +28,7 @@ class ProductTagsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @product_tag }
+      format.json { render :json => @product_tag }
     end
   end
 
@@ -44,11 +44,11 @@ class ProductTagsController < ApplicationController
 
     respond_to do |format|
       if @product_tag.save
-        format.html { redirect_to @product_tag, notice: 'Product tag was successfully created.' }
-        format.json { render json: @product_tag, status: :created, location: @product_tag }
+        format.html { redirect_to @product_tag, :notice => 'Product tag was successfully created.' }
+        format.json { render :json => @product_tag, :status => :created, :location => @product_tag }
       else
-        format.html { render action: "new" }
-        format.json { render json: @product_tag.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @product_tag.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class ProductTagsController < ApplicationController
 
     respond_to do |format|
       if @product_tag.update_attributes(params[:product_tag])
-        format.html { redirect_to @product_tag, notice: 'Product tag was successfully updated.' }
+        format.html { redirect_to @product_tag, :notice => 'Product tag was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @product_tag.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @product_tag.errors, :status => :unprocessable_entity }
       end
     end
   end
