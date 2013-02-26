@@ -1,4 +1,14 @@
 TumatemateWeb::Application.routes.draw do
+  get "manual_pages/conditions"
+
+  get "manual_pages/warranty"
+
+  get "manual_pages/preparation"
+
+  get "manual_pages/maintenance"
+
+	get "manual_pages/contacts"
+
   resources :product_tags
 
 

@@ -1,29 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<div class="content">
-  <div class="preview">
-	<div class="preview-content">
-	  <%= image_tag "../images/cbse-guarana.png", :class => "image-large", :height => "380px" %>
+<table class="middle-stripe">
+  <tr>
+	<td class="right-column">
 
-	  <div class="product-header">
-		<div class="product-name">
-		  <%= @product.name %> (<%= @product.weight %>g)<br/>
-		</div>
-		<div class="descriptionS"><%= @product.descriptionS %></div>
+	  <div class="menu">
+		<b>Maté:</b>
+		<ul>
+		  <li>CBSé Energia</li>
+		  <li>CBSé Naranja</li>
+		  <li>Taragüi</li>
+		  <li>Taragüi sin palo</li>
+		  <li>Selecta Premium</li>
+		</ul>
+		<b>Příslušenství:</b>
+		<ul>
+		  <li>Kalabasa cca 200ml</li>
+		  <li>Bombila lžícovitá</li>
+		  <li>Bomblia rovná</li>
+		</ul>
+		<ul>
+		  <li>Dulche de Leche - karamel 350g</li>
+		</ul>
 	  </div>
 
-	  <div class="info">
-		<div class="product-price">
-		  <%= @product.price %>Kč
+	</td>
+	<td class="container">
+	  <div class="content">
+		<div class="preview">
+		  <div class="preview-content">
+			<%= image_tag "../images/cbse-guarana.png", :class => "image-large", :height => "380px" %>
+
+			<div class="product-header">
+			  <div class="product-name">
+				<%= @product.name %> (<%= @product.weight %>g)<br/>
+			  </div>
+			  <div class="descriptionS"><%= @product.descriptionS %></div>
+			</div>
+
+			<div class="info">
+			  <div class="product-price">
+				<%= @product.price %>Kč
+			  </div>
+			  <div class="stock">
+				<b>Skladem:</b>
+				<%= @product.stock %> ks
+			  </div>
+			</div>
+		  </div>
 		</div>
-		<div class="stock">
-		  <b>Skladem:</b>
-		  <%= @product.stock %> ks
+		<div class="product-description">
+		  <%= @product.descriptionL.html_safe %>
 		</div>
 	  </div>
-	</div>
-  </div>
-  <div class="product-description">
-	<%= @product.descriptionL.html_safe %>
-  </div>
-</div>
+	</td>
+  </tr>
+</table>
