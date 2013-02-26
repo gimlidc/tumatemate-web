@@ -1,34 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<table width="100%">
-  <tr>
-  </tr>
-  <tr>
-	<td>
-	  <div class="preview">
-		<div class="image-large">
-		  <%= image_tag "../images/cbse-guarana.png", :height => "380px" %>
-		</div>
+<div class="content">
+  <div class="preview">
+	<div class="preview-content">
+	  <%= image_tag "../images/cbse-guarana.png", :class => "image-large", :height => "380px" %>
 
+	  <div class="product-header">
 		<div class="product-name">
-		  <%= @product.descriptionS %> <%= @product.weight %>g
+		  <%= @product.name %> (<%= @product.weight %>g)<br/>
 		</div>
+		<div class="descriptionS"><%= @product.descriptionS %></div>
+	  </div>
 
-		<div class="info">
-		  <div class="product-price">
-			<%= @product.price %>Kč
-		  </div>
-		  <div class="stock">
-			<b>Skladem:</b>
-			<%= @product.stock %> ks
-		  </div>
+	  <div class="info">
+		<div class="product-price">
+		  <%= @product.price %>Kč
+		</div>
+		<div class="stock">
+		  <b>Skladem:</b>
+		  <%= @product.stock %> ks
 		</div>
 	  </div>
-	</td>
-	<td>
-	  <div class="product-description">
-		<%= @product.descriptionL.html_safe %>
-	  </div>
-	</td>
-  </tr>
-</table>
+	</div>
+  </div>
+  <div class="product-description">
+	<%= @product.descriptionL.html_safe %>
+  </div>
+</div>

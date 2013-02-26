@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TumatemateWeb</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="top-menu"></div>
-  <div class="content-background">
-	<div class="menu-column">
-	  <table height="100%">
-		<tr><td></td></tr>
-		<tr><td class="bar">
-			<div class="menu">
-			<b>Maté:</b>
-			<ul>
-			  <li>CBSé Energia</li>
-			  <li>CBSé Naranja</li>
-			  <li>Taragüi</li>
-			  <li>Taragüi sin palo</li>
-			  <li>Selecta Premium</li>
-			</ul>
-			<b>Příslušenství:</b>
-			<ul>
-			  <li>Kalabasa cca 200ml</li>
-			  <li>Bombila lžícovitá</li>
-			  <li>Bomblia rovná</li>
-			</ul>
-			<ul>
-			  <li>Dulche de Leche - karamel 350g</li>
-			</ul>
-			</div>
-		</td></tr>
-		<tr><td></td></tr>
-	  </table>
+  <head>
+	<title>TumatemateWeb</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+  </head>
+  <body>
+	<div class="top-stripe">
+	  <div class="top-menu">
+		<%= image_tag "../images/logo.png", :class => "logo-image" %>
+		<ul class="semiopaquemenu">
+		  <li><a href="preparation.html">Příprava maté</a></li>
+		  <li><a>Obchodní podmínky</a></li>
+		  <li><a>Reklamační řád</a></li>
+		  <li><a>Kontakty</a></li>
+		</ul>
+	  </div>
 	</div>
-	<div class="container"><%= yield %></div>
-  </div>
-  <div class="bottom-bar"></div>
-</body>
+	<div class="middle-stripe-bounds">
+	<table class="middle-stripe">
+	  <tr>
+	  <td class="right-column">
+
+		<div class="menu">
+		  <b>Maté:</b>
+		  <ul>
+			<li>CBSé Energia</li>
+			<li>CBSé Naranja</li>
+			<li>Taragüi</li>
+			<li>Taragüi sin palo</li>
+			<li>Selecta Premium</li>
+		  </ul>
+		  <b>Příslušenství:</b>
+		  <ul>
+			<li>Kalabasa cca 200ml</li>
+			<li>Bombila lžícovitá</li>
+			<li>Bomblia rovná</li>
+		  </ul>
+		  <ul>
+			<li>Dulche de Leche - karamel 350g</li>
+		  </ul>
+		</div>
+
+	  </td>
+	  <td class="container"><%= yield %></td>
+	  </tr>
+	</table>
+	</div>
+	<div class="bottom-bar"></div>
+  </body>
 </html>
