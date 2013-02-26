@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<title>TumatemateWeb</title>
+	<title>Tu máte maté - stránky ve vývoji</title>
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
@@ -12,11 +12,11 @@
 	  <div class="top-menu">
 		<%= image_tag "../images/logo.png", :class => "logo-image" %>
 		<ul class="semiopaquemenu">
-		  <li><a href="preparation">Příprava maté</a></li>
-		  <li><a href="maintenance">Návody</a></li>
-		  <li><a href="conditions">Obchodní podmínky</a></li>
-		  <li><a href="warranty">Reklamační řád</a></li>
-		  <li><a href="contacts">Kontakty</a></li>
+		  <li><%= link_to "Příprava maté", :controller => "manual_pages", :action => "preparation" %></li>
+		  <li><%= link_to "Návody", :controller => "manual_pages", :action => "maintenance" %></li>
+		  <li><%= link_to "Obchodní podmínky", :controller => "manual_pages", :action => "conditions" %></li>
+		  <li><%= link_to "Reklamační řád", :controller => "manual_pages", :action => "warranty" %></li>
+		  <li><%= link_to "Kontakty", :controller => "manual_pages", :action => "contacts" %></li>
 		</ul>
 	  </div>
 	</div>
