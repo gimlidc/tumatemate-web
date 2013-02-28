@@ -18,30 +18,30 @@ class ProductTagsControllerTest < ActionController::TestCase
 
   test "should create product_tag" do
     assert_difference('ProductTag.count') do
-      post :create, product_tag: { productId: @product_tag.productId, tagId: @product_tag.tagId }
+      post :create, :product_tag => { :productId => @product_tag.productId, :tagId => @product_tag.tagId }
     end
 
     assert_redirected_to product_tag_path(assigns(:product_tag))
   end
 
   test "should show product_tag" do
-    get :show, id: @product_tag
+    get :show, :id => @product_tag
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @product_tag
+    get :edit, :id => @product_tag
     assert_response :success
   end
 
   test "should update product_tag" do
-    put :update, id: @product_tag, product_tag: { productId: @product_tag.productId, tagId: @product_tag.tagId }
+    put :update, :id => @product_tag, :product_tag => { :productId => @product_tag.productId, :tagId => @product_tag.tagId }
     assert_redirected_to product_tag_path(assigns(:product_tag))
   end
 
   test "should destroy product_tag" do
     assert_difference('ProductTag.count', -1) do
-      delete :destroy, id: @product_tag
+      delete :destroy, :id => @product_tag
     end
 
     assert_redirected_to product_tags_path

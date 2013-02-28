@@ -18,30 +18,30 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should create product" do
     assert_difference('Product.count') do
-      post :create, product: { descriptionL: @product.descriptionL, descriptionS: @product.descriptionS, imgL: @product.imgL, imgM: @product.imgM, imgS: @product.imgS, price: @product.price, stock: @product.stock, weight: @product.weight }
+      post :create, :product => { :descriptionL => @product.descriptionL, :descriptionS => @product.descriptionS, :imgL => @product.imgL, :imgM => @product.imgM, :imgS => @product.imgS, :price => @product.price, :stock => @product.stock, :weight=> @product.weight }
     end
 
     assert_redirected_to product_path(assigns(:product))
   end
 
   test "should show product" do
-    get :show, id: @product
+    get :show, :id => @product
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @product
+    get :edit, :id => @product
     assert_response :success
   end
 
   test "should update product" do
-    put :update, id: @product, product: { descriptionL: @product.descriptionL, descriptionS: @product.descriptionS, imgL: @product.imgL, imgM: @product.imgM, imgS: @product.imgS, price: @product.price, stock: @product.stock, weight: @product.weight }
+    put :update, :id => @product, :product => { :descriptionL => @product.descriptionL, :descriptionS => @product.descriptionS, :imgL => @product.imgL, :imgM => @product.imgM, :imgS => @product.imgS, :price => @product.price, :stock => @product.stock, :weight=> @product.weight }
     assert_redirected_to product_path(assigns(:product))
   end
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
-      delete :destroy, id: @product
+      delete :destroy, :id => @product
     end
 
     assert_redirected_to products_path

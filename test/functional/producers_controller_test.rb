@@ -18,30 +18,30 @@ class ProducersControllerTest < ActionController::TestCase
 
   test "should create producer" do
     assert_difference('Producer.count') do
-      post :create, producer: { country: @producer.country, description: @producer.description, name: @producer.name }
+      post :create, :producer => { :country => @producer.country, :description => @producer.description, :name => @producer.name }
     end
 
     assert_redirected_to producer_path(assigns(:producer))
   end
 
   test "should show producer" do
-    get :show, id: @producer
+    get :show, :id => @producer
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @producer
+    get :edit, :id => @producer
     assert_response :success
   end
 
   test "should update producer" do
-    put :update, id: @producer, producer: { country: @producer.country, description: @producer.description, name: @producer.name }
+    put :update, :id => @producer, :producer => { :country => @producer.country, :description => @producer.description, :name => @producer.name }
     assert_redirected_to producer_path(assigns(:producer))
   end
 
   test "should destroy producer" do
     assert_difference('Producer.count', -1) do
-      delete :destroy, id: @producer
+      delete :destroy, :id => @producer
     end
 
     assert_redirected_to producers_path

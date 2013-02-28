@@ -18,30 +18,30 @@ class OrderItemsControllerTest < ActionController::TestCase
 
   test "should create order_item" do
     assert_difference('OrderItem.count') do
-      post :create, order_item: { orderId: @order_item.orderId, price: @order_item.price, productId: @order_item.productId, quantity: @order_item.quantity }
+      post :create, :order_item => { :orderId => @order_item.orderId, :price => @order_item.price, :productId => @order_item.productId, :quantity => @order_item.quantity }
     end
 
     assert_redirected_to order_item_path(assigns(:order_item))
   end
 
   test "should show order_item" do
-    get :show, id: @order_item
+    get :show, :id => @order_item
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @order_item
+    get :edit, :id => @order_item
     assert_response :success
   end
 
   test "should update order_item" do
-    put :update, id: @order_item, order_item: { orderId: @order_item.orderId, price: @order_item.price, productId: @order_item.productId, quantity: @order_item.quantity }
+    put :update, :id => @order_item, :order_item => { :orderId => @order_item.orderId, :price => @order_item.price, :productId => @order_item.productId, :quantity => @order_item.quantity }
     assert_redirected_to order_item_path(assigns(:order_item))
   end
 
   test "should destroy order_item" do
     assert_difference('OrderItem.count', -1) do
-      delete :destroy, id: @order_item
+      delete :destroy, :id => @order_item
     end
 
     assert_redirected_to order_items_path
