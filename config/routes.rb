@@ -1,4 +1,6 @@
 TumatemateWeb::Application.routes.draw do
+  devise_for :admins
+
   get "manual_pages/conditions"
 
   get "manual_pages/warranty"
@@ -82,7 +84,7 @@ TumatemateWeb::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'manual_pages#contacts'
 
   # See how all your routes lay out with "rake routes"
 
