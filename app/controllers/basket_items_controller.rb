@@ -45,9 +45,9 @@ class BasketItemsController < ApplicationController
       if @basket_item.save
         format.html { 
           redirect_to @basket_item.cart, :notice => 'Basket item was successfully created.' 
-        }
+        }        
         format.json { 
-          render :json => @line_item, :status => :created, :location => @basket_item 
+          render :json => @basket_item, :status => :created, :location => @basket_item 
         }
       else
         format.html { 
@@ -67,7 +67,18 @@ class BasketItemsController < ApplicationController
 
     respond_to do |format|
       if @basket_item.update_attributes(params[:basket_item])
-        format.html { redirect_to @basket_item, :notice => 'Basket item was successfully updated.' }
+        if @basket_item.quantity > 0
+          notice = 'Basket item was successfully updated.'          
+        else
+          @basket_item.destroy
+          notice = 'Basket item was removed.'            
+        end
+        format.html { 
+          redirect_to cart_path(current_cart), :notice => notice  
+        }
+        format.js {
+          render :layout => false
+        }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -81,12 +92,17 @@ class BasketItemsController < ApplicationController
   def destroy
     @basket_item = BasketItem.find(params[:id])
     @basket_item.destroy
+    
+    @cart = current_cart
 
     respond_to do |format|
       format.html { 
-        redirect_to products_path, :notice => 'Basket item was removed.'  
+        redirect_to cart_path(current_cart), :notice => 'Basket item was removed.'  
+      }
+      format.js {
+        render :layout => false
       }
       format.json { head :no_content }
     end
-  end
+  end  
 end

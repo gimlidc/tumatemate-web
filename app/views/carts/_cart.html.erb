@@ -1,0 +1,10 @@
+<h2>Obsah košíku:</h2>
+<table class="cart-content">
+	<tr><th></th><th></th><th>množství</th><th>cena celkem</th><th></th></tr>
+	<%= render(cart.basket_items) %>
+	<tr><th></th><th>celkem</th><th><%= cart.total_weight/1000 %>kg</th><th><%= number_to_price(cart.total_price) %></th>
+		<th>
+			<%= button_to 'Vysypat košík', cart, :method => :delete, :confirm => 'Košík bude zcela prázdný ... ?' %>		
+		</th>
+	</tr>
+</table>

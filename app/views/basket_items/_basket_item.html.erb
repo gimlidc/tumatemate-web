@@ -1,0 +1,11 @@
+<tr class="cart-item"> 
+	<td class="cart-item-image"><%= image_tag basket_item.product.image_large(:thumb) %></td>
+	<td class="cart-item-name"><%= basket_item.product.name %></td>
+	<td>
+		<%= form_for(basket_item) do |f| %>
+		<%= f.number_field :quantity, :onchange => "this.form.submit();", :size => 4 %>		
+		<% end %>		
+	</td>
+	<td><%= number_to_price(basket_item.total_price) %></td>
+	<td><%= button_to 'Odstranit', basket_item_path(basket_item), :method => :delete, :remote => true %></td>
+</tr>		

@@ -15,4 +15,16 @@ class Cart < ActiveRecord::Base
     current_item
   end
   
+  def total_price
+    basket_items.to_a.sum {
+      |item| item.total_price
+    }    
+  end
+  
+  def total_weight
+    basket_items.to_a.sum {
+      |item| item.total_weight
+    }
+  end
+  
 end

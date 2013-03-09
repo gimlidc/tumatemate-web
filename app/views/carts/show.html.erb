@@ -1,28 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-<h2>Obsah košíku:</h2>
-<table class="cart-content">
-	<tr><th></th><th></th><th>množství</th><th>cena celkem</th><th></th></tr>
-	<% 
-		price = 0
-		weight = 0 
-	%>	
-	<% @cart.basket_items.each do |item| %>
-		<tr class="cart-item">
-			<td class="cart-item-image"><%= image_tag item.product.image_large(:thumb) %></td>
-			<td class="cart-item-name"><%= item.product.name %></td>
-			<td><%= item.quantity %></td>
-			<td><%= item.quantity * item.price %>Kč</td>
-			<td><%= button_to 'Odstranit', basket_items_path(item), :method => :delete %></td>
-		</tr>
-		<%
-			price += item.quantity * item.price
-			weight += item.quantity * item.product.weight
-		%>
-	<% end %>
-	<tr><th></th><th>celkem</th><th><%= weight/1000 %>kg</th><th><%= price %>Kč</th>
-		<th>
-			<%= button_to 'Vysypat košík', @cart, method: :delete, confirm: 'Košík bude zcela prázdný ... ?' %>		
-		</th>
-	</tr>
-</ul>
+<div id="cart">
+	<%= render @cart %>
+</div>
