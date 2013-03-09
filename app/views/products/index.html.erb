@@ -1,3 +1,4 @@
+<div class="row">
 <p id="notice"><%= notice %></p>
 <h1>Seznam všeho zboží</h1>
 
@@ -23,11 +24,11 @@
     <td class="product-list-name"><%= product.name %></td>
     <td class="product-list-price"><%= product.price %></td>
     <td class="product-list-description-short"><%= product.descriptionS %></td>
-    <td class="product-list-description-long"><%= product.descriptionL %></td>
+    <td class="product-list-description-long"><%= truncate(product.descriptionL, :length => 100) %></td>
     <td><%= product.weight %></td>
     <td><%= product.stock %></td>
     <td><%= link_to 'Zobrazit', product %></td>
-    <td><%= link_to 'Uprait', edit_product_path(product) %></td>
+    <td><%= link_to 'Upravit', edit_product_path(product) %></td>
     <td><%= link_to 'Smazat', product, :method => :delete, :confirm => 'Zboží bude zcela vymazáno a nebude jej možné obnovit ... ?' %></td>
   </tr>
 <% end %>
@@ -36,3 +37,4 @@
 <br />
 
 <%= link_to 'New Product', new_product_path %>
+</div>

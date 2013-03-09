@@ -20,17 +20,29 @@
 	margin-bottom: 15px;
 }
 
-.preparation-step a {
-	display: block;
+.subtitle {  
 	font-weight: bold;
 }
 
 
 .preparation-step p {
-	display: block;
 	margin: 2px;
 }
 
 #list {
 	margin-left: 20em;
+}
+
+.contacts-table {
+  border: none;  
+  margin-left: auto;
+  margin-right: auto;
+  background: none;
+}
+
+.contacts-table tr td, tr th {
+  vertical-align: top;
+  padding: 20px;
+  background: none;
+  margin: 5px;
 }
