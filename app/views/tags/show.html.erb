@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<p id="notice">
+		<%= notice %>
+	</p>
 
-<p>
-  <b>Description:</b>
-  <%= @tag.description %>
-</p>
+	<p>
+		<b>Description:</b>
+		<%= @tag.description %>
+	</p>
 
-
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+	<%= link_to 'Edit', edit_tag_path(@tag) %> |
+	<%= link_to 'Back', tags_path %>
+</div>

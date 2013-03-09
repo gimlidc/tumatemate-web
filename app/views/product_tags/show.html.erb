@@ -1,15 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<p id="notice">
+		<%= notice %>
+	</p>
 
-<p>
-  <b>Tagid:</b>
-  <%= @product_tag.tagId %>
-</p>
+	<p>
+		<b>Tagid:</b>
+		<%= @product_tag.tagId %>
+	</p>
 
-<p>
-  <b>Productid:</b>
-  <%= @product_tag.productId %>
-</p>
+	<p>
+		<b>Productid:</b>
+		<%= @product_tag.productId %>
+	</p>
 
-
-<%= link_to 'Edit', edit_product_tag_path(@product_tag) %> |
-<%= link_to 'Back', product_tags_path %>
+	<%= link_to 'Edit', edit_product_tag_path(@product_tag) %> |
+	<%= link_to 'Back', product_tags_path %>
+</div>
