@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<table class="middle-stripe">
-  <tr>
-	<td class="right-column">
-
+<div class="one columns"></div>
+<div class="two columns">
 	  <div class="menu">
 		<b>Maté:</b>
 		<ul>
@@ -24,10 +21,9 @@
 		</ul>
 	  </div>
 
-	</td>
-	<td class="container">
-	  <div class="content">
-		<div class="preview">
+</div>
+	  
+		<div class="five columns">
 		  <div class="preview-content">
 			<%= image_tag @product.image_large.url(:medium), :class => "image-large" %>
 
@@ -50,10 +46,8 @@
 			</div>
 		  </div>
 		</div>
-		<div class="product-description">
+		<div class="two columns product-description">
 		  <%= @product.descriptionL.html_safe %>
 		</div>
-	  </div>
-	</td>
-  </tr>
-</table>
+<div class="two columns"></div>
+</div>

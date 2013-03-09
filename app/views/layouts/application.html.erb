@@ -7,11 +7,12 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<div class="filling-top"></div>
-		<div class="top-stripe">
-			<div class="top-menu">
-				<%= image_tag "../images/logo.png", :class => "logo-image" %>
-				<ul class="semiopaquemenu">
+		<div class="twelve columns header_nav_fullwidth">
+			<div class="ten columns">
+				<ul id="menu-header" class="nav-bar horizontal">
+					<li>
+						<%= image_tag "../images/logo.png", :alt => "tumátematé.cz", :style => "border:none", :class => "logo-image" %>
+					</li>
 					<li>
 						<%= link_to "Obchod", products_path %>
 					</li>
@@ -33,13 +34,14 @@
 				</ul>
 			</div>
 		</div>
-
-		<div class="middle-stripe-bounds">			
-			<p class="alert">
-				<%= alert %>
-			</p>
-			<%= yield %>
-		</div>
+		<!-- END Header -->
+		<div style="clear: both"></div>						
+			<div id="container">
+				<p>
+					<%= alert %>
+				</p>
+				<%= yield %>
+			</div>					
 		<div class="filling-bottom"></div>
 		<div class="bottom-bar"></div>
 	</body>

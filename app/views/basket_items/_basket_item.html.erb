@@ -1,11 +1,20 @@
-<tr class="cart-item"> 
-	<td class="cart-item-image"><%= image_tag basket_item.product.image_large(:thumb) %></td>
-	<td class="cart-item-name"><%= basket_item.product.name %></td>
-	<td>
+<tr class="cart-item">
+	<td class="cart-item-image">
+		<%= link_to product_path(basket_item.product_id) do %>
+			<%= image_tag basket_item.product.image_large(:thumb) %>
+		<% end %>
+	</td>
+	<td class="cart-item-name">
+		<b><%= basket_item.product.name %></b>
+		<p> 
+			<i><%= basket_item.product.descriptionS %></i>
+		</p>
+	</td>
+	<td class="cart-item-quantity">
 		<%= form_for(basket_item) do |f| %>
-		<%= f.number_field :quantity, :onchange => "this.form.submit();", :size => 4 %>		
+		<%= f.number_field :quantity, :onchange => "this.form.submit();", :size => 4, :class => "quantity" %>		
 		<% end %>		
 	</td>
-	<td><%= number_to_price(basket_item.total_price) %></td>
-	<td><%= button_to 'Odstranit', basket_item_path(basket_item), :method => :delete, :remote => true %></td>
-</tr>		
+	<td class="cart-item-price"><%= number_to_price(basket_item.total_price) %></td>	
+	<td><%= button_to 'Odstranit', basket_item_path(basket_item), :method => :delete, :remote => true %></td>	
+</tr>
