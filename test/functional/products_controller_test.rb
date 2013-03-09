@@ -12,11 +12,13 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    sign_in admins(:one)
     get :new
     assert_response :success
   end
 
   test "should create product" do
+    sign_in admins(:one)
     assert_difference('Product.count') do
       post :create, :product => { :descriptionL => @product.descriptionL, :descriptionS => @product.descriptionS, :imgL => @product.imgL, :imgM => @product.imgM, :imgS => @product.imgS, :price => @product.price, :stock => @product.stock, :weight=> @product.weight }
     end
@@ -30,16 +32,19 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    sign_in admins(:one)
     get :edit, :id => @product
     assert_response :success
   end
 
   test "should update product" do
+    sign_in admins(:one)
     put :update, :id => @product, :product => { :descriptionL => @product.descriptionL, :descriptionS => @product.descriptionS, :imgL => @product.imgL, :imgM => @product.imgM, :imgS => @product.imgS, :price => @product.price, :stock => @product.stock, :weight=> @product.weight }
     assert_redirected_to product_path(assigns(:product))
   end
 
   test "should destroy product" do
+    sign_in admins(:one)
     assert_difference('Product.count', -1) do
       delete :destroy, :id => @product
     end

@@ -37,22 +37,29 @@ class BasketItemsController < ApplicationController
     @basket_item = BasketItem.find(params[:id])
   end
 
-  # POST /basket_items
-  # POST /basket_items.json
   def create
-    @basket_item = BasketItem.new(params[:basket_item])
-
+    @cart = current_cart
+    product = Product.find(params[:product_id])    
+    @basket_item = @cart.basket_items.build(:product => product)    
     respond_to do |format|
       if @basket_item.save
-        format.html { redirect_to @basket_item, :notice => 'Basket item was successfully created.' }
-        format.json { render :json => @basket_item, :status => :created, :location => @basket_item }
+        format.html { 
+          redirect_to @basket_item.cart, :notice => 'Basket item was successfully created.' 
+        }
+        format.json { 
+          render :json => @line_item, :status => :created, :location => @basket_item 
+        }
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @basket_item.errors, :status => :unprocessable_entity }
+        format.html { 
+          render :action => "new" 
+        }
+        format.json { 
+          render :json => @basket_item.errors, :status => :unprocessable_entity 
+        }
       end
     end
   end
-
+      
   # PUT /basket_items/1
   # PUT /basket_items/1.json
   def update

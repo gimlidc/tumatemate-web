@@ -42,6 +42,7 @@
 			  <div class="product-price">
 				<%= @product.price %>Kč
 			  </div>
+			  <%= button_to 'Add to Cart', basket_items_path(product_id: @product) %>
 			  <div class="stock">
 				<b>Skladem:</b>
 				<%= @product.stock %> ks
