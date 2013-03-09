@@ -1,4 +1,7 @@
 TumatemateWeb::Application.routes.draw do
+  resources :carts
+
+
   devise_for :admins
 
   get "manual_pages/conditions"

@@ -37,5 +37,8 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+# To dump database
+gem 'yaml_db'
+
 # To use authenticated users
 gem 'devise'
