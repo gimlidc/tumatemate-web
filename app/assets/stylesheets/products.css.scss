@@ -60,7 +60,7 @@
 .descriptionS {
 	margin: 10px;
 	font-style: italic;
-	text-indent: 15em;
+	text-indent: 10em;
 }
 
 .content {
@@ -94,4 +94,29 @@
 .container {
 	position: relative;
 	display: inline-block;
+}
+
+.product-list tr td {
+  vertical-align: top;
+  padding: 5px;
+}
+
+.product-list-description-short {  
+  font-style: italic;
+}
+
+.product-list-description-long {
+  width: 40%;
+  text-align: justify;
+}
+
+.product-list-name {
+  font-size: 13pt;
+  text-weight: bold;
+}
+
+.product-list-price {
+  font-size: 13pt;
+  text-weight: bold;
+  color: orange;
 }

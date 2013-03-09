@@ -84,10 +84,4 @@ class ProductsController < ApplicationController
     end
   end
 
-
-	def show_image
-		@product = Product.find(params[:id])
-		send_file @product.imgL, :disposition => 'inline'
-	end
-
 end

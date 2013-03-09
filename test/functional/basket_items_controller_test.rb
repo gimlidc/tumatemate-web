@@ -43,6 +43,6 @@ class BasketItemsControllerTest < ActionController::TestCase
       delete :destroy, :id => @basket_item
     end
 
-    assert_redirected_to basket_items_path
+    assert_redirected_to products_path
   end
 end

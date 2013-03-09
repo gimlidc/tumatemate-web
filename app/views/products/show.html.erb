@@ -29,20 +29,20 @@
 	  <div class="content">
 		<div class="preview">
 		  <div class="preview-content">
-			<%= image_tag "../images/cbse-guarana.png", :class => "image-large", :height => "380px" %>
+			<%= image_tag @product.image_large.url(:medium), :class => "image-large" %>
 
 			<div class="product-header">
 			  <div class="product-name">
-				<%= @product.name %> (<%= @product.weight %>g)<br/>
+				<%= @product.name %> (<%= number_to_human(@product.weight) %>g)<br/>
 			  </div>
 			  <div class="descriptionS"><%= @product.descriptionS %></div>
 			</div>
 
 			<div class="info">
 			  <div class="product-price">
-				<%= @product.price %>Kč
+				<%= number_to_human(@product.price) %>Kč
 			  </div>
-			  <%= button_to 'Add to Cart', basket_items_path(product_id: @product) %>
+			  <%= button_to 'Přidat do košíku', basket_items_path(product_id: @product) %>
 			  <div class="stock">
 				<b>Skladem:</b>
 				<%= @product.stock %> ks

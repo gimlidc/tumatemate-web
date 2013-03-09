@@ -42,3 +42,6 @@ gem 'yaml_db'
 
 # To use authenticated users
 gem 'devise'
+
+# To use attach files paperclip
+gem 'paperclip'

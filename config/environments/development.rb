@@ -37,4 +37,7 @@ TumatemateWeb::Application.configure do
   
   # Don't ask me why this. Just "Devise wants it..."
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  # ImageMagick usage for paperclip gem
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

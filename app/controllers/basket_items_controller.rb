@@ -40,7 +40,7 @@ class BasketItemsController < ApplicationController
   def create
     @cart = current_cart
     product = Product.find(params[:product_id])    
-    @basket_item = @cart.basket_items.build(:product => product)    
+    @basket_item = @cart.add_product(product.id)    
     respond_to do |format|
       if @basket_item.save
         format.html { 
@@ -83,7 +83,9 @@ class BasketItemsController < ApplicationController
     @basket_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to basket_items_url }
+      format.html { 
+        redirect_to products_path, :notice => 'Basket item was removed.'  
+      }
       format.json { head :no_content }
     end
   end
