@@ -1,7 +1,5 @@
 class BasketItemsController < ApplicationController
   
-  before_filter :authenticate_admin!
-  
   # GET /basket_items
   # GET /basket_items.json
   def index

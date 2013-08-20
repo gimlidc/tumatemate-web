@@ -26,10 +26,9 @@ TumatemateWeb::Application.routes.draw do
   resources :users
 
 
-  #resources :basket_items
+  resources :basket_items
 
-
-  #resources :order_items
+  resources :order_items
 
 
   resources :orders
