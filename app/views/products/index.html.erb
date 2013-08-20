@@ -2,13 +2,13 @@
     <p id="notice">
         <%= notice %>
     </p>    
-    <div class="two columns"></div>
-    <div class="eight columns">
+    <div class="one column"></div>
+    <div class="ten columns">
     	<h1>Naše nabídka</h1>
     	<table id="product-list">
     		<% i=0 %>    		
         	<% @products.each do |product| %>
-        		<% if i % 2 == 0 %>
+        		<% if i % 3 == 0 %>
         			<tr>
         		<% end %>             	
             <td>
@@ -28,11 +28,14 @@
             	<% end %>
             </td>            
             <% i=i+1 %>
-            <% if i % 2 == 0 %>
+            <% if i % 3 == 0 %>
         		</tr>
         	<% end %>                    
         <% end %>
+        <% if i % 3 != 0 %>
+        	</tr>
+        <% end %>
         </table>
     </div>
-    <div class="two columns"></div>
+    <div class="one column"></div>
 </div>

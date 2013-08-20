@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  
+  before_filter :authenticate_admin!
+  
   # GET /orders
   # GET /orders.json
   def index

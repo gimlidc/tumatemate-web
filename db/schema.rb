@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309132612) do
+ActiveRecord::Schema.define(:version => 20130820175233) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(:version => 20130309132612) do
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
   create_table "basket_items", :force => true do |t|
-    t.string   "cart_id"
+    t.integer  "cart_id",    :limit => 255
     t.integer  "product_id"
     t.decimal  "price"
     t.integer  "quantity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "carts", :force => true do |t|
