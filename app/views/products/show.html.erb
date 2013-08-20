@@ -1,53 +1,47 @@
-<p id="notice"><%= notice %></p>
+<p id="notice">
+    <%= notice %>
+</p>
 <div class="one columns"></div>
 <div class="two columns">
-	  <div class="menu">
-		<b>Maté:</b>
-		<ul>
-		  <li>CBSé Energia</li>
-		  <li>CBSé Naranja</li>
-		  <li>Taragüi</li>
-		  <li>Taragüi sin palo</li>
-		  <li>Selecta Premium</li>
-		</ul>
-		<b>Příslušenství:</b>
-		<ul>
-		  <li>Kalabasa cca 200ml</li>
-		  <li>Bombila lžícovitá</li>
-		  <li>Bomblia rovná</li>
-		</ul>
-		<ul>
-		  <li>Dulche de Leche - karamel 350g</li>
-		</ul>
-	  </div>
+    <div class="menu">
+        <ul>
+            <% @mateList.each do |item|%>
+            <li>
+                <%= link_to item.name, :action => item.id %>
+            </li>
+            <% end %>
+        </ul>
+    </div>
 
 </div>
-	  
-		<div class="five columns">
-		  <div class="preview-content">
-			<%= image_tag @product.image_large.url(:medium), :class => "image-large" %>
 
-			<div class="product-header">
-			  <div class="product-name">
-				<%= @product.name %> (<%= number_to_human(@product.weight) %>g)<br/>
-			  </div>
-			  <div class="descriptionS"><%= @product.descriptionS %></div>
-			</div>
+<div class="five columns">
+    <div class="preview-content">
+        <%= image_tag @product.image_large.url(:medium), :class => "image-large" %>
 
-			<div class="info">
-			  <div class="product-price">
-				<%= number_to_human(@product.price) %>Kč
-			  </div>
-			  <%= button_to 'Přidat do košíku', basket_items_path(product_id: @product) %>
-			  <div class="stock">
-				<b>Skladem:</b>
-				<%= @product.stock %> ks
-			  </div>
-			</div>
-		  </div>
-		</div>
-		<div class="two columns product-description">
-		  <%= @product.descriptionL.html_safe %>
-		</div>
+        <div class="product-header">
+            <div class="product-name">
+                <%= @product.name %> (<%= number_to_human(@product.weight) %>g)
+                <br/>
+            </div>
+            <div class="descriptionS">
+                <%= @product.descriptionS %>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="product-price">
+                <%= number_to_human(@product.price) %>Kč
+            </div>
+            <%= button_to 'Přidat do košíku', basket_items_path(product_id: @product) %>
+            <div class="stock">
+                <b>Skladem:</b>
+                <%= @product.stock %> ks
+            </div>
+        </div>
+    </div>
+</div>
+<div class="two columns product-description">
+    <%= @product.descriptionL.html_safe %>
+</div>
 <div class="two columns"></div>
-</div>

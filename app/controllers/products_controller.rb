@@ -1,6 +1,22 @@
 class ProductsController < ApplicationController
   
   before_filter :authenticate_admin!, :except => [:show, :index]
+  before_filter :fetch_menu
+  
+  def fetch_menu
+    @mateList = Product.all    
+  end
+  
+  # GET /products
+  # GET /products.json
+  def admin_index
+    @products = Product.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @products }
+    end    
+  end
   
   # GET /products
   # GET /products.json
@@ -10,7 +26,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @products }
-    end
+    end    
   end
 
   # GET /products/1
