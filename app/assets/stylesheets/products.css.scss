@@ -8,6 +8,36 @@
 	top: 0px;
 }
 
+#product-list {
+  width: 100%;  
+  border-spacing: 5px;  
+}
+
+#product-list tr td {
+  padding: 10px;
+  width: 50%;
+}
+
+#product-list tr td a {
+  color: black;  
+}
+
+#product-list tr td .name {  
+  font-size: 13pt;
+  font-weight: bold;
+}
+
+#product-list tr td .description {  
+  font-style: italic;
+  text-align: right;
+}
+
+#product-list tr td .price {
+  color: orange;
+  font-weight: bold;
+  font-size: 13pt;
+}
+
 .product-name {
 	font-size: 18pt;
 	font-weight: bold;

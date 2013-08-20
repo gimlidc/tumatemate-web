@@ -34,7 +34,7 @@ TumatemateWeb::Application.routes.draw do
 
   resources :orders
 
-
+  get "products/admin_index"
   resources :products
 
 

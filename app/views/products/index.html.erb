@@ -1,40 +1,38 @@
 <div class="row">
-<p id="notice"><%= notice %></p>
-<h1>Seznam všeho zboží</h1>
-
-<table class="product-list">
-  <tr>
-    <th colspan="3">obrázky</th>
-    <th>název</th>
-    <th>cena</th>
-    <th>krátký popis</th>
-    <th>dlouhý popis</th>
-    <th>váha</th>
-    <th>sklad</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr>
-    <td><%= image_tag product.image_small.url(:thumb) %></td>
-    <td><%= image_tag product.image_medium.url(:thumb) %></td>
-    <td><%= image_tag product.image_large.url(:thumb) %></td>
-    <td class="product-list-name"><%= product.name %></td>
-    <td class="product-list-price"><%= product.price %></td>
-    <td class="product-list-description-short"><%= product.descriptionS %></td>
-    <td class="product-list-description-long"><%= truncate(product.descriptionL, :length => 100) %></td>
-    <td><%= product.weight %></td>
-    <td><%= product.stock %></td>
-    <td><%= link_to 'Zobrazit', product %></td>
-    <td><%= link_to 'Upravit', edit_product_path(product) %></td>
-    <td><%= link_to 'Smazat', product, :method => :delete, :confirm => 'Zboží bude zcela vymazáno a nebude jej možné obnovit ... ?' %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Product', new_product_path %>
+    <p id="notice">
+        <%= notice %>
+    </p>    
+    <div class="two columns"></div>
+    <div class="eight columns">
+    	<h1>Naše nabídka</h1>
+    	<table id="product-list">
+    		<% i=0 %>    		
+        	<% @products.each do |product| %>
+        		<% if i % 2 == 0 %>
+        			<tr>
+        		<% end %>             	
+            <td>
+            	<%= link_to(product) do %>
+                <div class="name">
+                     <%= product.name %> (<%= number_to_human(product.weight) %>g)
+                </div>
+                <div class="description">
+                    <%= product.descriptionS %>
+                </div>
+                <%= image_tag product.image_medium.url(:medium) %>
+                <div class="price">
+                    <%= number_to_human(product.price) %>Kč
+                </div>
+            	<br />
+            	<%= product.stock %>&nbsp;ks
+            	<% end %>
+            </td>            
+            <% i=i+1 %>
+            <% if i % 2 == 0 %>
+        		</tr>
+        	<% end %>                    
+        <% end %>
+        </table>
+    </div>
+    <div class="two columns"></div>
 </div>
