@@ -45,3 +45,6 @@ gem 'devise'
 
 # To use attach files paperclip
 gem 'paperclip'
+
+# Form production we don't use the shitty sqlite3
+gem 'pg'
