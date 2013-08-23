@@ -131,7 +131,7 @@ class CartsController < ApplicationController
     
     @message = @message + "\n\nNejsme plátci DPH.\nV případě jakýchkoli nesrovnalostí nás neváhej kontaktovat na emailu info@tumatemate.cz.\n\nDěkujeme za objednávku."
     # control email
-    mail = ActionMailer::Base.mail(:from => "delivery@tumatemate.cz", :to => user.email, :subject => "[Maté]: objednávka #{params[:id]}".encode("UTF-8"), :body => @message.encode("UTF-8"))
+    mail = ActionMailer::Base.mail(:from => "tumatemate", :to => user.email, :subject => "[Maté]: objednávka #{params[:id]}".encode("UTF-8"), :body => @message.encode("UTF-8"))
     mail.deliver
     # checkout email
     checkout = "Košík číslo: #{@cart.id}\n\n"
