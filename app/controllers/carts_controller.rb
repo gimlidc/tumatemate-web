@@ -142,7 +142,7 @@ class CartsController < ApplicationController
     checkout = checkout + "email: " + user.email + "\n\n"
     checkout = checkout + params[:message] + "\n"
     
-    checkoutMail = ActionMailer::Base.mail(:from => "delivery@tumatemate.cz", :to => "info@tumatemate.cz", :subject => "[Maté]: objednávka #{params[:id]}".encode("UTF-8"), :body => checkout.encode("UTF-8"))
+    checkoutMail = ActionMailer::Base.mail(:from => "tumatemate", :to => "info@tumatemate.cz", :subject => "[Maté]: objednávka #{params[:id]}".encode("UTF-8"), :body => checkout.encode("UTF-8"))
     checkoutMail.deliver
     
     session[:cart_id] = nil
