@@ -19,7 +19,7 @@
                 <div class="description">
                     <%= product.descriptionS %>
                 </div>
-                <%= image_tag product.image_large.url(:medium) %>
+                <%= image_tag product.image_large.url(:medium), :size => "200x200" %>
                 <div class="price">
                     <%= number_to_human(product.price) %>Kč
                 </div>
