@@ -136,7 +136,9 @@ class CartsController < ApplicationController
     # checkout email
     checkout = "Košík číslo: #{@cart.id}\n\n"
     checkout = checkout + order + "\n"
-    checkout = checkout + address + "\n"
+    if !address.nil?
+      checkout = checkout + address + "\n"
+    end
     checkout = checkout + "email: " + user.email + "\n\n"
     checkout = checkout + params[:message] + "\n"
     
