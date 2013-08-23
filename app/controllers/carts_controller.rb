@@ -101,9 +101,12 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     user = User.new(params[:user])
     @message = "\n"
+    order = ""
     @cart.basket_items.each do |item|
-      @message = @message + "#{item.product.name}\t\t #{item.quantity}ks\t#{item.quantity * item.price}Kč\n"
+      order = order + "#{item.product.name}\t\t #{item.quantity}ks\t#{item.quantity * item.price}Kč\n"
     end
+    
+    @message = @message + order
     
     if params[:delivery] == "poštou"
       # check address
@@ -111,7 +114,9 @@ class CartsController < ApplicationController
       @message = @message + "Celkem\t\t\t   \t#{@cart.total_price+100}Kč\n\n"
       @message = @message + "Částku #{@cart.total_price+100} (včetně 100Kč za poštovné) odešli na:\n"
       @message = @message + "účet č. 51-6074180267/0100\nvariabilní symbol: #{params[:id]}\n\nZásilka ti poté bude odeslána na adresu:\n"
-      @message = @message + user.name + " " + user.surname + "\n" + user.street + "\n" + user.zipCode + " " + user.city
+      address = user.name + " " + user.surname + "\n" + user.street + "\n" + user.zipCode + " " + user.city
+      @message = @message + address
+      @message = @message + "\n\nZboží pro Tebe bude rezervováno po dobu 7 dní."
     else
       # check email valid?
       if user.email == ""
@@ -125,8 +130,18 @@ class CartsController < ApplicationController
     end
     
     @message = @message + "\n\nNejsme plátci DPH.\nV případě jakýchkoli nesrovnalostí nás neváhej kontaktovat na emailu info@tumatemate.cz.\n\nDěkujeme za objednávku."
-    mail = ActionMailer::Base.mail(:from => "delivery@tumatemate.cz", :to => "info@tumatemate.cz", :subject => "[Maté]: objednávka #{params[:id]}".encode("UTF-8"), :body => @message.encode("UTF-8"))
+    # control email
+    mail = ActionMailer::Base.mail(:from => "delivery@tumatemate.cz", :to => user.email, :subject => "[Maté]: objednávka #{params[:id]}".encode("UTF-8"), :body => @message.encode("UTF-8"))
     mail.deliver
+    # checkout email
+    checkout = "Košík číslo: #{@cart.id}\n\n"
+    checkout = checkout + order + "\n"
+    checkout = checkout + address + "\n"
+    checkout = checkout + "email: " + user.email + "\n"
+    
+    checkoutMail = ActionMailer::Base.mail(:from => "delivery@tumatemate.cz", :to => "info@tumatemate.cz", :subject => "[Maté]: objednávka #{params[:id]}".encode("UTF-8"), :body => checkout.encode("UTF-8"))
+    checkoutMail.deliver
+    
     session[:cart_id] = nil
   end
   

@@ -12,13 +12,13 @@
 	</tr>
 </table>
 <%= form_for @user, :url => url_for(:controller => 'carts', :action => 'confirm', :id => cart.id), :method => :post do |f| %>
+Email pro kontakt: <%= f.text_field :email %>
 <p>
 <%= radio_button_tag(:delivery,"osobně v Praze") %> <b>Doručení do vlastních rukou</b> (pouze v Praze)
 <div class="paragraph-indent">
 	Místo a čas předání s Tebou domluvíme emailem.<br />
 	Doručení je zdarma.<br />
 	Platba při předání.<br />
-<%= f.text_field :email %>
 </div>
 </p>
 <p>
