@@ -132,7 +132,8 @@ class CartsController < ApplicationController
       subject @subject
       body @message
     end
-    mail.deliver
+    mail.delivery_method :sendmail
+    mail.deliver!
     session[:cart_id] = nil
   end
   
