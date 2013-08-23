@@ -17,6 +17,7 @@ class CartsController < ApplicationController
   def show
     begin
       @cart = Cart.find(params[:id])
+      @user = User.new
     rescue ActiveRecord::RecordNotFound
       logger.error "Attempt to access invalid cart #{params[:id]}"
       redirect_to products_url, notice: 'Invalid cart'
@@ -94,4 +95,38 @@ class CartsController < ApplicationController
       }
     end    
   end
+  
+  # incoming user defined by email or address + cart.id => send mail to gimli
+  def confirm
+    @cart = Cart.find(params[:id])
+    user = User.new(params[:user])
+    @message = "\n"
+    @cart.basket_items.each do |item|
+      @message = @message + "#{item.product.name}\t\t #{item.quantity}ks\t#{item.quantity * item.price}Kč\n"
+    end
+    
+    if params[:delivery] == "poštou"
+      # check address
+      @message = @message + "Poštovné\t\t   \t100.0Kč\n"
+      @message = @message + "Celkem\t\t\t   \t#{@cart.total_price+100}Kč\n\n"
+      @message = @message + "Částku #{@cart.total_price+100} (včetně 100Kč za poštovné) odešli na:\n"
+      @message = @message + "účet č. 51-6074180267/0100\nvariabilní symbol: #{params[:id]}\n\nZásilka ti poté bude odeslána na adresu:\n"
+      @message = @message + user.name + " " + user.surname + "\n" + user.street + "\n" + user.zipCode + " " + user.city
+    else
+      # check email valid?
+      if user.email == ""
+        flash[:alert]="emailová adresa je chybně zadaná"
+        redirect_to :action => 'show'
+        return
+      end
+      @message = @message + "Celkem\t\t\t   \t#{@cart.total_price}Kč\n\n"
+      
+      @message = @message + "Díky za objednávku. Na uvedeném emailu (#{user.email}) Tě budeme kontaktovat."
+    end
+    
+    @message = @message + "\n\nNejsme plátci DPH.\nV případě jakýchkoli nesrovnalostí nás neváhej kontaktovat na emailu info@tumatemate.cz.\n\nDěkujeme za objednávku."
+    ActionMailer::Base.mail(:from => "delivery@tumatemate.cz", :to => "info@tumatemate.cz", :subject => "[Maté]: objednávka #{params[:id]}", :message => @message)
+    session[:cart_id] = nil
+  end
+  
 end

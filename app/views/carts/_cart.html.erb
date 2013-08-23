@@ -7,8 +7,34 @@
 		<th class="cart-item-price">celkem:</th><th class="cart-item-weight"><%= cart.total_weight/1000 %>kg</th>
 		<th class="cart-item-price"><%= number_to_price(cart.total_price) %></th>
 		<th>
-			<%= button_to 'Vysypat košík', cart, :method => :delete, :confirm => 'Košík bude zcela prázdný ... ?' %>		
+			<%= button_to 'Vysypat košík', cart, :method => :delete, :confirm => 'Košík bude zcela prázdný ... ?' %>	
 		</th>
 	</tr>
 </table>
+<%= form_for @user, :url => url_for(:controller => 'carts', :action => 'confirm', :id => cart.id), :method => :post do |f| %>
+<p>
+<%= radio_button_tag(:delivery,"osobně v Praze") %> <b>Doručení do vlastních rukou</b> (pouze v Praze)
+<div class="paragraph-indent">
+	Místo a čas předání s Tebou domluvíme emailem.<br />
+	Doručení je zdarma.<br />
+	Platba při předání.<br />
+<%= f.text_field :email %>
+</div>
+</p>
+<p>
+<%= radio_button_tag(:delivery, "poštou") %> <b>Doručení Českou poštou</b>
+<div class="paragraph-indent">
+	Účtujeme navíc <b>100Kč</b> za poštovné a balné.<br />
+	Platbu je třeba provést předem převodem. Detaily platby se Ti zobrazí po potvrzení objednávky.<br />
+	Zásilku ti odešleme po zaúčtování platby.<br />
+	Jméno: <%= f.text_field :name %><br />
+	Příjmení: <%= f.text_field :surname %><br />
+	Ulice a č.p.: <%= f.text_field :street %><br />
+	Pošta (obec): <%= f.text_field :city %><br />
+	PSČ: <%= f.text_field :zipCode %>
+</div>
+</p>
+<%= text_area_tag(:message, "Prostor pro další sdělení", size: "24x6") %>
+<%= f.submit 'Objednat' %>
+<% end %>
 </div>

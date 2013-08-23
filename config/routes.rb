@@ -1,5 +1,10 @@
 TumatemateWeb::Application.routes.draw do
-  resources :carts
+
+  resources :carts do
+    member do
+      post 'confirm'
+    end
+  end
 
 
   devise_for :admins
