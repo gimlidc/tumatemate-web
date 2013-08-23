@@ -23,19 +23,21 @@
 }
 
 #product-list tr td .name {  
-  font-size: 13pt;
+  font-size: 12pt;
   font-weight: bold;
+  text-align: center;
 }
 
 #product-list tr td .description {  
   font-style: italic;
-  text-align: right;
+  text-align: center;
 }
 
 #product-list tr td .price {
   color: orange;
   font-weight: bold;
-  font-size: 13pt;
+  font-size: 12pt;
+  text-align: right;
 }
 
 .product-name {

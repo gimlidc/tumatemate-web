@@ -4,7 +4,7 @@
     </p>    
     <div class="one column"></div>
     <div class="ten columns">
-    	<h1>Naše nabídka</h1>
+    	<h3>Naše nabídka</h3>
     	<table id="product-list">
     		<% i=0 %>    		
         	<% @products.each do |product| %>
@@ -23,8 +23,6 @@
                 <div class="price">
                     <%= number_to_human(product.price) %>Kč
                 </div>
-            	<br />
-            	<%= product.stock %>&nbsp;ks
             	<% end %>
             </td>            
             <% i=i+1 %>
