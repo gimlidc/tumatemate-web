@@ -113,7 +113,7 @@ class CartsController < ApplicationController
       @message = @message + "Poštovné\t\t   \t100.0Kč\n"
       @message = @message + "Celkem\t\t\t   \t#{@cart.total_price+100}Kč\n\n"
       @message = @message + "Částku #{@cart.total_price+100} (včetně 100Kč za poštovné) odešli na:\n"
-      @message = @message + "účet č. 51-6074180267/0100\nvariabilní symbol: #{params[:id]}\n\nZásilka ti poté bude odeslána na adresu:\n"
+      @message = @message + "účet č. 1014681489/6100\nvariabilní symbol: #{params[:id]}\n\nZásilka ti poté bude odeslána na adresu:\n"
       address = user.name + " " + user.surname + "\n" + user.street + "\n" + user.zipCode + " " + user.city
       @message = @message + address
       @message = @message + "\n\nZboží pro Tebe bude rezervováno po dobu 7 dní."
