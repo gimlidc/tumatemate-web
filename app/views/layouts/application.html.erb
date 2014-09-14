@@ -14,6 +14,9 @@
 						<%= image_tag "../images/logo.png", :alt => "tumátematé.cz", :style => "border:none", :class => "logo-image" %>
 					</li>
 					<li>
+						<%= link_to "Maté párty",  :controller => "manual_pages", :action => "party" %>
+					</li>
+					<li>
 						<%= link_to "Obchod", products_path %>
 					</li>
 					<li>
@@ -21,7 +24,7 @@
 					</li>
 					<li>
 						<%= link_to "Návody", :controller => "manual_pages", :action => "maintenance" %>
-					</li>
+					</li>					
 					<!--
 					<li>
 						<%= link_to "Obchodní podmínky", :controller => "manual_pages", :action => "conditions" %>

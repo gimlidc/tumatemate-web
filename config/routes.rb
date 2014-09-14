@@ -9,6 +9,8 @@ TumatemateWeb::Application.routes.draw do
 
   devise_for :admins
 
+  get "manual_pages/party"
+
   get "manual_pages/conditions"
 
   get "manual_pages/warranty"

@@ -1,4 +1,8 @@
 class ManualPagesController < ApplicationController
+  
+  def party    
+  end
+  
   def preparation
   end
 
