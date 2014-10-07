@@ -10,7 +10,11 @@ class BasketItem < ActiveRecord::Base
   end
   
   def total_weight
-    quantity * product.weight
+    if product.weight.nil?
+      0
+    else
+      quantity * product.weight
+    end
   end
   
   def remove_one
